@@ -11,13 +11,16 @@ function createApp() {
 
   appElement.append(titleComponent);
 
-  const inputComponent = createInputComponent();
+  const numberOne = createInputComponent("Number 1");
+  const numberTwo = createInputComponent("Number 2");
 
-  appElement.append(inputComponent);
+  appElement.append(numberOne, numberTwo);
 
-  const calcAdd = createButtonComponent("addButton", "+");
-  const calcSub = createButtonComponent("subButton", "-");
-  inputComponent.append(calcAdd, calcSub);
+  const calcAdd = createButtonComponent("+", function () {
+    alert(Number(numberOne.value) + Number(numberTwo.value));
+  });
+  const calcSub = createButtonComponent("-");
+  appElement.append(calcAdd, calcSub);
 }
 
 // Run the createApp function
