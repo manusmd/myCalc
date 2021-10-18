@@ -51,12 +51,15 @@ h5 {
 .input {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   gap: 1em;
 }
 
 .button {
   border: none;
+  width: 30vw;
+  height: 2em;
+  margin: 1rem;
 }
 
 .buttonDiv {

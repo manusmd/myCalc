@@ -11,15 +11,18 @@ function createApp() {
 
   appElement.append(titleComponent);
 
+  //Call the createInputComponent function to create 2 inputs for the numbers
   const numberOne = createInputComponent("Number 1");
   const numberTwo = createInputComponent("Number 2");
-
   appElement.append(numberOne, numberTwo);
 
+  //
   const calcAdd = createButtonComponent("+", function () {
     alert(Number(numberOne.value) + Number(numberTwo.value));
   });
-  const calcSub = createButtonComponent("-");
+  const calcSub = createButtonComponent("-", function () {
+    alert(Number(numberOne.value) - Number(numberTwo.value));
+  });
   appElement.append(calcAdd, calcSub);
 }
 
