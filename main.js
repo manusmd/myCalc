@@ -26,8 +26,10 @@ function createApp() {
   const calcMultiply = createButtonComponent("*", function () {
     alert(Number(numberOne.value) * Number(numberTwo.value));
   });
-
-  appElement.append(calcAdd, calcSub, calcMultiply);
+  const calcDiv = createButtonComponent("/", function () {
+    alert(Number(numberOne.value) / Number(numberTwo.value));
+  });
+  appElement.append(calcAdd, calcSub, calcMultiply, calcDiv);
 }
 
 // Run the createApp function
