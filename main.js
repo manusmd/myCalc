@@ -1,6 +1,7 @@
 import { createButtonComponent } from "./lib/calcComponent.js";
 import { createInputComponent } from "./lib/inputComponent.js";
 import { createTitleComponent } from "./lib/titleComponent.js";
+import { createElement } from "./lib/elements.js";
 
 // Declare a function to create the elements and logic inside the #app element
 function createApp() {
@@ -14,22 +15,32 @@ function createApp() {
   //Call the createInputComponent function to create 2 inputs for the numbers
   const numberOne = createInputComponent("Number 1");
   const numberTwo = createInputComponent("Number 2");
-  appElement.append(numberOne, numberTwo);
+  const inputDiv = createElement("div", { className: "input" }, [
+    numberOne,
+    numberTwo,
+  ]);
+  appElement.append(inputDiv);
 
-  //
-  const calcAdd = createButtonComponent("+", function () {
+  // Create buttons and use callback to give calculate function
+  const calcAddition = createButtonComponent("+", function () {
     alert(Number(numberOne.value) + Number(numberTwo.value));
   });
-  const calcSub = createButtonComponent("-", function () {
+  const calcSubtraction = createButtonComponent("-", function () {
     alert(Number(numberOne.value) - Number(numberTwo.value));
   });
   const calcMultiply = createButtonComponent("*", function () {
     alert(Number(numberOne.value) * Number(numberTwo.value));
   });
-  const calcDiv = createButtonComponent("/", function () {
+  const calcDivision = createButtonComponent("/", function () {
     alert(Number(numberOne.value) / Number(numberTwo.value));
   });
-  appElement.append(calcAdd, calcSub, calcMultiply, calcDiv);
+  const calcDiv = createElement("div", { className: "calcDiv" }, [
+    calcAddition,
+    calcSubtraction,
+    calcMultiply,
+    calcDivision,
+  ]);
+  appElement.append(calcDiv);
 }
 
 // Run the createApp function
